@@ -27,19 +27,17 @@ Subtracts provided number(s). Option to add to stored memory or overwrite memory
 
 If `overwrite_memory` flag is not enabled, all provided number(s) will be subtracted from the stored memory (including when 0). If no numbers are provided, no calculation will be preformed and the memory will not change.
 
-If `overwrite_memory` flag is enabled, the memory will be overwritten with the first provided number and then all other numbers will be subtracted from this. If the `overwrite_memory` flag is enabled when no numbers are provided, the memory will be reset to 0. If only 1 number is provided when this flag is enabled, the memory will be overwritten with this number and no further calculations will be preformed.
+If `overwrite_memory` flag is enabled, the memory will be overwritten with the first provided number and then all other numbers will be subtracted from this. If the `overwrite_memory` flag is enabled when no numbers are provided, the memory will be reset to 0 and no further calculations will be preformed. If only 1 number is provided when this flag is enabled, the memory will be overwritten with this number and no further calculations will be preformed.
 
 ### Multiply
 
 `calculator.multiply(*numbers: float, overwrite_memory: bool = False)`
 
-Multiplies any number of numbers together. Option to add to stored memory or overwrite memory with result.
+Multiplies any number of number(s) together. Option to add to stored memory or overwrite memory with result.
 
-If `overwrite_memory` flag is enabled, the memory will be overwritten with only the product of the provided numbers, otherwise the stored memory will be multiplied by all numbers, staring from the first provided number. 
+If `overwrite_memory` flag is enabled, the memory will be overwritten with only the product of the provided number(s). If only 1 number is provided, the memory will be reset with this number and no further calculations will be preformed. If the `overwrite_memory` flag is enabled when no numbers are provided, the memory will be reset to 0 and no further calculations will be preformed.
 
-If `overwrite_memory` is not enabled but the stored memory is 0, the function will behave as though this flag is enabled.
-
-If no numbers are provided, no calculation is preformed. If the `overwrite_memory` flag is enabled when no numbers are provided, the memory will be reset to 0.
+If `overwrite_memory` flag is not enabled, the stored memory will be multiplied by all numbers, staring from the first provided number, except if the stored memory is 0 - then the function will behave as though the `overwrite_memory` is enabled. If no numbers are provided, no calculation is preformed and the memory will remain the same. 
 
 ### Divide
 
@@ -47,11 +45,9 @@ If no numbers are provided, no calculation is preformed. If the `overwrite_memor
 
 Divides provided number(s). Option to add to stored memory or overwrite memory with result - divide behaviour differs based on this flag. 
 
-If `overwrite_memory` flag is enabled, the memory will be overwritten with only the product of the provided numbers, otherwise the stored memory will be multiplied by all numbers, staring from the first provided number. 
-
 If `overwrite_memory` flag is not enabled, the stored memory will be divided by all provided number(s), starting from the first number, except when the stored memory is 0. In this case, the function will behave as though the `overwrite_memory` flag is enabled. Otherwise, if no numbers are provided and `overwrite_memory` flag is not enabled, no calculation will be preformed and the memory will not change.
 
-If `overwrite_memory` flag is enabled, the memory will be overwritten with the first provided number and then divided by all other numbers, starting the second number. If the `overwrite_memory` flag is enabled when no numbers are provided, the memory will be reset to 0. If only 1 number is provided when this flag is enabled, the memory will be overwritten with this number and no further calculations will be preformed.
+If `overwrite_memory` flag is enabled, the memory will be overwritten with the first provided number and then divided by all other numbers, starting with the second number. If the `overwrite_memory` flag is enabled when no numbers are provided, the memory will be reset to 0. If only 1 number is provided when this flag is enabled, the memory will be overwritten with this number and no further calculations will be preformed.
 
 ### Root
 

@@ -15,7 +15,7 @@ The calculator class is instantiated with 1 property, `_memory`. This is set to 
 
 Adds any number of numbers together. Option to add to stored memory or overwrite memory with result.
 
-If `overwrite_memory` flag is enabled, the memory will be overwritten with only the sum of the provided numbers, otherwise the provided number(s) will be added to the stored memory. 
+If `overwrite_memory` flag is enabled, the memory will be overwritten with only the sum of the provided number(s), otherwise the provided number(s) will be added to the stored memory. 
 
 If no numbers are provided, no calculation is preformed. If the `overwrite_memory` flag is enabled when no numbers are provided, the memory will be reset to 0.
 
@@ -45,7 +45,7 @@ If no numbers are provided, no calculation is preformed. If the `overwrite_memor
 
 `calculator.divide(*numbers: float, overwrite_memory: bool = False)`
 
-Divides provided number(s). Option to add to stored memory or overwrite memory with result - subtraction behaviour differs based on this flag. 
+Divides provided number(s). Option to add to stored memory or overwrite memory with result - divide behaviour differs based on this flag. 
 
 If `overwrite_memory` flag is enabled, the memory will be overwritten with only the product of the provided numbers, otherwise the stored memory will be multiplied by all numbers, staring from the first provided number. 
 

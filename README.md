@@ -5,7 +5,7 @@
 
 `Calculator(memory: float = 0)`
 
-The calculator class is instantiated with 1 property, _memory. This is set to 0 by default but can set to any float. _memory should only be changed by class methods.
+The calculator class is instantiated with 1 property, `_memory`. This is set to 0 by default but can set to any float. `_memory` should only be changed by class methods.
 
 ## Functions
 

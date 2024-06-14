@@ -61,4 +61,3 @@ class Calculator:
     @property
     def memory(self):
         return self._memory
-

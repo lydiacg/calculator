@@ -12,6 +12,18 @@ class Calculator:
         if len(numbers) > 0:
             self._memory = self._memory + sum(numbers)
 
+    def subtract(self, *numbers: float, overwrite_memory: bool = False):
+        num_list = list(numbers)
+        if len(numbers) > 0:
+            if overwrite_memory:
+                self._memory = num_list[0]
+                num_list.pop(0)
+
+            self._memory = self._memory - sum(num_list)
+        else:
+            if overwrite_memory:
+                self._memory = 0
+
     def multiply(self, *numbers: float, overwrite_memory: bool = False):
         if len(numbers) > 0:
             if overwrite_memory or self._memory == 0:
@@ -23,24 +35,14 @@ class Calculator:
             if overwrite_memory:
                 self._memory = 0
 
-    def subtract(self, *numbers: float, overwrite_memory: bool = False):
-        if len(numbers) > 0:
-            if overwrite_memory:
-                self._memory = numbers[0]
-                numbers.pop(0)
-
-            self._memory = self._memory - sum(numbers)
-        else:
-            if overwrite_memory:
-                self._memory = 0
-
     def divide(self, *numbers: float, overwrite_memory: bool = False):
+        num_list = list(numbers)
         if len(numbers) > 0:
-            if overwrite_memory:
-                self._memory = numbers[0]
-                numbers.pop(0)
+            if overwrite_memory or self._memory == 0:
+                self._memory = num_list[0]
+                num_list.pop(0)
 
-            for number in numbers:
+            for number in num_list:
                 self._memory /= number
         else:
             if overwrite_memory:
@@ -60,10 +62,3 @@ class Calculator:
     def memory(self):
         return self._memory
 
-
-def main():
-    calculator = Calculator()
-
-
-if __name__ == "__main__":
-    main()

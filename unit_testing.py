@@ -32,6 +32,7 @@ def test_init():
     calculator_test_init_6 = Calculator(1.5)
     assert calculator_test_init_6._memory == 1.5
 
+
 def test_add():
     # one input
     calculator_test_add_1 = Calculator()
@@ -43,7 +44,7 @@ def test_add():
     assert calculator_test_add_1._memory == 15
 
     # mutliple inputs
-    calculator_test_add_1.add(10,5,5,10)
+    calculator_test_add_1.add(10, 5, 5, 10)
     assert calculator_test_add_1._memory == 45
 
     # decimal input
@@ -59,12 +60,13 @@ def test_add():
     assert calculator_test_add_1._memory == 40
 
     # overwrite memory
-    calculator_test_add_1.add(5, overwrite_memory = True)
+    calculator_test_add_1.add(5, overwrite_memory=True)
     assert calculator_test_add_1._memory == 5
-    calculator_test_add_1.add(5,5,10, overwrite_memory = True)
+    calculator_test_add_1.add(5, 5, 10, overwrite_memory=True)
     assert calculator_test_add_1._memory == 20
-    calculator_test_add_1.add(overwrite_memory = True)
+    calculator_test_add_1.add(overwrite_memory=True)
     assert calculator_test_add_1._memory == 0
+
 
 def test_subtract():
     # one input
@@ -77,7 +79,7 @@ def test_subtract():
     assert calculator_test_subtract_1._memory == -5
 
     # mutliple inputs
-    calculator_test_subtract_1.subtract(10,5,5,10)
+    calculator_test_subtract_1.subtract(10, 5, 5, 10)
     assert calculator_test_subtract_1._memory == -35
 
     # decimal input
@@ -93,12 +95,13 @@ def test_subtract():
     assert calculator_test_subtract_1._memory == -30
 
     # overwrite memory
-    calculator_test_subtract_1.subtract(5, overwrite_memory = True)
+    calculator_test_subtract_1.subtract(5, overwrite_memory=True)
     assert calculator_test_subtract_1._memory == 5
-    calculator_test_subtract_1.subtract(5,2, overwrite_memory = True)
+    calculator_test_subtract_1.subtract(5, 2, overwrite_memory=True)
     assert calculator_test_subtract_1._memory == 3
-    calculator_test_subtract_1.subtract(overwrite_memory = True)
+    calculator_test_subtract_1.subtract(overwrite_memory=True)
     assert calculator_test_subtract_1._memory == 0
+
 
 def test_multiply():
     # one input
@@ -111,7 +114,7 @@ def test_multiply():
     assert calculator_test_multiply_1._memory == 500
 
     # mutliple inputs
-    calculator_test_multiply_1.multiply(2,3,4,5)
+    calculator_test_multiply_1.multiply(2, 3, 4, 5)
     assert calculator_test_multiply_1._memory == 60000
 
     # decimal input
@@ -127,16 +130,17 @@ def test_multiply():
     assert calculator_test_multiply_1._memory == -30000
 
     # overwrite memory
-    calculator_test_multiply_1.multiply(5, overwrite_memory = True)
+    calculator_test_multiply_1.multiply(5, overwrite_memory=True)
     assert calculator_test_multiply_1._memory == 5
-    calculator_test_multiply_1.multiply(5,5,10, overwrite_memory = True)
+    calculator_test_multiply_1.multiply(5, 5, 10, overwrite_memory=True)
     assert calculator_test_multiply_1._memory == 250
-    calculator_test_multiply_1.multiply(overwrite_memory = True)
+    calculator_test_multiply_1.multiply(overwrite_memory=True)
     assert calculator_test_multiply_1._memory == 0
-    
+
     # 0 memory
     calculator_test_multiply_1.multiply(5)
     assert calculator_test_multiply_1._memory == 5
+
 
 def test_divide():
     # one input
@@ -149,8 +153,8 @@ def test_divide():
     assert calculator_test_divide_1._memory == 0.2
 
     # mutliple inputs
-    calculator_test_divide_1.add(1000, overwrite_memory = True)
-    calculator_test_divide_1.divide(2,5,10,2)
+    calculator_test_divide_1.add(1000, overwrite_memory=True)
+    calculator_test_divide_1.divide(2, 5, 10, 2)
     assert calculator_test_divide_1._memory == 5
 
     # decimal input
@@ -166,17 +170,18 @@ def test_divide():
     assert calculator_test_divide_1._memory == -10
 
     # overwrite memory
-    calculator_test_divide_1.divide(5, overwrite_memory = True)
+    calculator_test_divide_1.divide(5, overwrite_memory=True)
     assert calculator_test_divide_1._memory == 5
-    calculator_test_divide_1.divide(100,5,10, overwrite_memory = True)
+    calculator_test_divide_1.divide(100, 5, 10, overwrite_memory=True)
     assert calculator_test_divide_1._memory == 2
-    calculator_test_divide_1.divide(overwrite_memory = True)
+    calculator_test_divide_1.divide(overwrite_memory=True)
     assert calculator_test_divide_1._memory == 0
-    
+
     # 0 memory
     calculator_test_divide_1.divide(5)
     assert calculator_test_divide_1._memory == 5
-    
+
+
 def test_root():
     # no input
     calculator_test_root_1 = Calculator(16)
@@ -184,7 +189,6 @@ def test_root():
 
     # 1 input
     assert calculator_test_root_1.root(25) == 5
-
 
 
 if __name__ == "__main__":

@@ -1,6 +1,8 @@
 # Calculator class 
 #### Module 1, sprint 2
 
+## Installation
+
 ## Calculator object
 
 `Calculator(memory: float = 0)`
@@ -9,7 +11,7 @@ The calculator class is instantiated with 1 property, `_memory`. This is set to 
 
 Requires math package
 
-## Functions
+## Methods
 
 ### Add
 

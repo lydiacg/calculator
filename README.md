@@ -14,7 +14,7 @@ The calculator class is instantiated with 1 property, `_memory`. This is set to 
 
 Requires math package
 
-## Functions
+## Methods
 
 ### Add
 

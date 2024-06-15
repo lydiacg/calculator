@@ -1,6 +1,11 @@
 # Calculator class 
 #### Module 1, sprint 2
 
+## Installation
+
+From TestPyPi using pip
+`pip install -i https://test.pypi.org/simple/ calculator-lydiacg`
+
 ## Calculator object
 
 `Calculator(memory: float = 0)`

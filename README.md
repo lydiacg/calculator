@@ -3,8 +3,13 @@
 
 ## Installation
 
-From TestPyPi using pip
+From TestPyPi, install using pip
+
 `pip install -i https://test.pypi.org/simple/ calculator-lydiacg`
+
+Import the Calculator class
+
+`from calculator_lydiacg.calculator import Calculator`
 
 ## Calculator object
 
@@ -18,43 +23,51 @@ Requires math package
 
 ### Add
 
-`calculator.add(*numbers: float, overwrite_memory: bool = False)`
+`calculator.add(*numbers: float, ans: bool = False)`
 
-Adds any number of numbers together. Option to add to stored memory or overwrite memory with result.
+Addition. Any number of digits can be summed.
 
-If `overwrite_memory` flag is enabled, the memory will be overwritten with only the sum of the provided number(s), otherwise the provided number(s) will be added to the stored memory. 
+If only 1 number is input, it is always added to the memory. `ans` flag has no impact on behaviour with only 1 number.
 
-If no numbers are provided, no calculation is preformed. If the `overwrite_memory` flag is enabled when no numbers are provided, the memory will be reset to 0.
+If multiple numbers are input, by default the memory is overwritten with the sum of these numbers. If `ans` flag is set to `True`, all numbers will be added to the memory.
+
+If no numbers are provided, the memory is not changed.
 
 ### Subtract
 
-`calculator.subtract(*numbers: float, overwrite_memory: bool = False)`
+`calculator.subtract(*numbers: float, ans: bool = False)`
 
-Subtracts provided number(s). Option to add to stored memory or overwrite memory with result - subtraction behaviour differs based on this flag.
+Subtraction. Any numbers of digits are subtracted.
 
-If `overwrite_memory` flag is not enabled, all provided number(s) will be subtracted from the stored memory (including when 0). If no numbers are provided, no calculation will be preformed and the memory will not change.
+If only 1 number is input, it is always subtracted from the memory. `ans` flag has no impact on behaviour with only 1 number.
 
-If `overwrite_memory` flag is enabled, the memory will be overwritten with the first provided number and then all other numbers will be subtracted from this. If the `overwrite_memory` flag is enabled when no numbers are provided, the memory will be reset to 0 and no further calculations will be preformed. If only 1 number is provided when this flag is enabled, the memory will be overwritten with this number and no further calculations will be preformed.
+If multiple numbers are input, by default the memory is overwritten by the first number minus the rest of the numbers. If `ans` flag is set to `True`, all numbers will be subtracted from the memory.
+
+If no numbers are provided, the memory is not changed.
 
 ### Multiply
 
-`calculator.multiply(*numbers: float, overwrite_memory: bool = False)`
+`calculator.multiply(*numbers: float, ans: bool = False)`
 
-Multiplies any number of number(s) together. Option to add to stored memory or overwrite memory with result.
+Multiplication. Any numbers of digits are multiplied together.
 
-If `overwrite_memory` flag is enabled, the memory will be overwritten with only the product of the provided number(s). If only 1 number is provided, the memory will be reset with this number and no further calculations will be preformed. If the `overwrite_memory` flag is enabled when no numbers are provided, the memory will be reset to 0 and no further calculations will be preformed.
+If only 1 number is input, memory is always multiplied by this numbers. `ans` flag has no impact on behaviour with only 1 number.
 
-If `overwrite_memory` flag is not enabled, the stored memory will be multiplied by all numbers, staring from the first provided number, except if the stored memory is 0 - then the function will behave as though the `overwrite_memory` is enabled. If no numbers are provided, no calculation is preformed and the memory will remain the same. 
+If multiple numbers are input, by default the memory is overwritten by the product of the numbers. If `ans` flag is set to `True`, the memory will be multiplied by all numbers.
+
+If no numbers are provided, the memory is not changed.
 
 ### Divide
 
-`calculator.divide(*numbers: float, overwrite_memory: bool = False)`
+`calculator.divide(*numbers: float, ans: bool = False)`
 
-Divides provided number(s). Option to add to stored memory or overwrite memory with result - divide behaviour differs based on this flag. 
+Division. Any numbers of digits are divided by each other.
 
-If `overwrite_memory` flag is not enabled, the stored memory will be divided by all provided number(s), starting from the first number, except when the stored memory is 0. In this case, the function will behave as though the `overwrite_memory` flag is enabled. Otherwise, if no numbers are provided and `overwrite_memory` flag is not enabled, no calculation will be preformed and the memory will not change.
+If only 1 number is input, memory is always divided by this numbers. `ans` flag has no impact on behaviour with only 1 number.
 
-If `overwrite_memory` flag is enabled, the memory will be overwritten with the first provided number and then divided by all other numbers, starting with the second number. If the `overwrite_memory` flag is enabled when no numbers are provided, the memory will be reset to 0. If only 1 number is provided when this flag is enabled, the memory will be overwritten with this number and no further calculations will be preformed.
+If multiple numbers are input, by default the memory is overwritten by the first number divided by the remaining numbers, starting from the second number. If `ans` flag is set to `True`, the memory will be divided by all numbers.
+
+If no numbers are provided, the memory is not changed.
 
 ### Root
 

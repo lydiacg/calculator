@@ -11,80 +11,90 @@ class Calculator:
         """
         self._memory = memory
 
-    def add(self, *numbers: float, overwrite_memory: bool = False):
+    def add(self, *numbers: float, ans: bool = False):
         """
-        Adds all numbers to stored memory, or overwrites memory with sum of all numbers.
+        Addition. If 1 number is provided, added to the memory. If multiple numbers
+        are provided, sum overwrites memory, except when ans is True - then all numbers
+        are added to memory.
 
         :param numbers: number(s) to sum
         :type numbers: float
-        :param overwrite_memory: flag to indicate if memory should be overwritten or not
-        :type overwrite_memory: bool
+        :param ans: if True add to memory, if False overwrite memory. Only applicable for multiple numbers
+        :type ans: bool
         """
-        if overwrite_memory:
-            self._memory = 0
+        if len(numbers) == 1:
+            self._memory += numbers[0]
+        elif len(numbers) > 1:
+            if ans:
+                self._memory += sum(numbers)
+            else:
+                self._memory = sum(numbers)
 
-        if len(numbers) > 0:
-            self._memory = self._memory + sum(numbers)
-
-    def subtract(self, *numbers: float, overwrite_memory: bool = False):
+    def subtract(self, *numbers: float, ans: bool = False):
         """
-        Subtracts all numbers from stored memory, or overwrites memory with first number minus all other numbers.
+        Subtraction. If 1 number is provided, subtracted from memory. If multiple numbers
+        are provided, memory is overwritten with numbers[0] - sum(numbers[1:]), except when 
+        ans is True - then all numbers are subtracted from memory.
 
         :param numbers: number(s) to subtract
         :type numbers: float
-        :param overwrite_memory: flag to indicate if memory should be overwritten or not
-        :type overwrite_memory: bool
+        :param ans: if True sub from memory, if False overwrite memory. Only applicable for multiple numbers
+        :type ans: bool
         """
-        num_list = list(numbers)
-        if len(numbers) > 0:
-            if overwrite_memory:
-                self._memory = num_list[0]
-                num_list.pop(0)
+        if len(numbers) == 1:
+            self._memory -= numbers[0]
+        elif len(numbers) > 1:
+            if ans:
+                self._memory -= sum(numbers)
+            else:
+                self._memory = numbers[0] - sum(numbers[1:])
 
-            self._memory = self._memory - sum(num_list)
-        else:
-            if overwrite_memory:
-                self._memory = 0
-
-    def multiply(self, *numbers: float, overwrite_memory: bool = False):
+    def multiply(self, *numbers: float, ans: bool = False):
         """
-        Multiplies stored memory by all numbers, or overwrites memory with product of all numbers.
+        Multiplication. If 1 number is provided, memory is multiplied by it. If multiple numbers
+        are provided, product overwrites memory, except when ans is True - then memory is multiplied
+        by all numbers
 
         :param numbers: number(s) to multiply
         :type numbers: float
-        :param overwrite_memory: flag to indicate if memory should be overwritten or not
-        :type overwrite_memory: bool
+        :param ans: if True multiply memory, if False overwrite memory. Only applicable for multiple numbers
+        :type ans: bool
         """
-        if len(numbers) > 0:
-            if overwrite_memory or self._memory == 0:
-                self._memory = 1
-
+        if len(numbers) == 1:
+            self._memory *= numbers[0]
+        elif len(numbers) > 1:
+            product = 1
             for number in numbers:
-                self._memory *= number
-        else:
-            if overwrite_memory:
-                self._memory = 0
+                product *= number
+            if ans:
+                self._memory *= product
+            else:
+                self._memory = product
 
-    def divide(self, *numbers: float, overwrite_memory: bool = False):
+
+    def divide(self, *numbers: float, ans: bool = False):
         """
-        Divides stored memory by all numbers, or overwrites memory with first number divided all other numbers.
+        Division. If 1 number is provided, memory is divided by number. If multiple numbers
+        are provided, memory is overwritten with numbers[0] / numbers[1] / numbers[2] ..., except when 
+        ans is True - then memory is divided by all numbers
 
         :param numbers: number(s) to divide
         :type numbers: float
-        :param overwrite_memory: flag to indicate if memory should be overwritten or not
-        :type overwrite_memory: bool
+        :param ans: if True divide memory, if False overwrite memory. Only applicable for multiple numbers
+        :type ans: bool
         """
-        num_list = list(numbers)
-        if len(numbers) > 0:
-            if overwrite_memory or self._memory == 0:
-                self._memory = num_list[0]
-                num_list.pop(0)
-
-            for number in num_list:
-                self._memory /= number
-        else:
-            if overwrite_memory:
-                self._memory = 0
+        if len(numbers) == 1:
+            self._memory /= numbers[0]
+        elif len(numbers) > 1:
+            for i, number in enumerate(numbers):
+                if i == 0:
+                    if ans:
+                        self._memory /= number
+                    else:
+                        self._memory = number
+                else:
+                    self._memory /= number
+                    
 
     def root(self, x: float = None):
         """
